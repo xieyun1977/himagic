@@ -1,0 +1,79 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<link href="/css/common.css" type="text/css" rel="stylesheet">
+<link href="/css/dppage.css" type="text/css" rel="stylesheet">
+<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<!--数量增加减少-->
+<link rel="stylesheet" href="/css/jquery.spinner.css" />
+<script src="/js/jquery.spinner.js" ></script>
+{insert_scripts files='common.js,buy_ticket.js,transport.js'}
+<div id="bosess">
+
+    <!--内页正文-->
+    <section id="inside-pages">
+        <div class="pages-title"><img src="images/mp_xx/mp.png"><img src="images/mp_xx/mp_title.png"></div>
+
+        <div class="pages-boxs">
+            <div class="back-all">
+                <div class="dp-titles">
+                    <a href="mp_onett.html" class="dptactive">
+                        <h1>1</h1>
+                        <small>选择订票日期</small>
+                    </a>
+                    <a href="mp_two.html" class="dptactive">
+                        <h1>2</h1>
+                        <small>填写订单</small>
+                    </a>
+                    <a href="mp_three.html" class="dptactive">
+                        <h1>3</h1>
+                        <small>付款及信息确认</small>
+                    </a>
+                    <a href="mp_four.html">
+                        <h1>4</h1>
+                        <small>支付完成</small>
+                    </a>
+                </div>
+                <div class="dp_forms dp_forms3">
+            <!-- 订单提交成功 -->
+            <div style="padding: 10px; border-top: 1px solid #DADADA; text-align: center;" >
+                <p style="font-size: 14px;">{$lang.remember_order_number}: <strong style="color:red">{$order.order_sn}</strong>。 </p>
+                <table width="80%" border="0" align="center">
+                    <tr>
+                        <td align="left"><!--{if $order.shipping_name}-->{$lang.select_shipping}: <strong>{$order.shipping_name}</strong>，<!--{/if}-->{$lang.select_payment}: <strong>{$order.pay_name}</strong>。{$lang.order_amount}: <strong>{$total.amount_formated}</strong></td>
+                    </tr>
+                    <tr>
+                        <td align="left">{$order.pay_desc}</td>
+                    </tr>
+                    <!-- {if $pay_online} -->
+                    <!-- 如果是线上支付则显示支付按钮 -->
+                    <tr>
+                        <td align="center">{$pay_online}</td>
+                    </tr>
+                    <!-- {/if} -->
+                </table>
+                <!--{if $virtual_card}-->
+                <div style="text-align:left;overflow:hidden;border:1px solid #E2C822;background:#FFF9D7;margin:10px;padding:10px 50px 30px;">
+                    <!--{foreach from=$virtual_card item=vgoods}-->
+                    <h3 style="color:#2359B1">{$vgoods.goods_name}</h3>
+                    <!--{foreach from=$vgoods.info item=card}-->
+                    <ul style="list-style:none;padding:0;margin:0;clear:both">
+                        <!--{if $card.card_sn}--><li style="margin-right:50px;float:left;"><strong>{$lang.card_sn}:</strong><span style="color:red;">{$card.card_sn}</span></li><!--{/if}-->
+                        <!--{if $card.card_password}--><li style="margin-right:50px;float:left;"><strong>{$lang.card_password}:</strong><span style="color:red;">{$card.card_password}</span></li><!--{/if}-->
+                        <!--{if $card.end_date}--><li style="float:left;"><strong>{$lang.end_date}:</strong>{$card.end_date}</li><!--{/if}-->
+                    </ul>
+                    <!--{/foreach}-->
+                    <!--{/foreach}-->
+                </div>
+                <!--{/if}-->
+                <p>{$order_submit_back}。</p>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!--页脚-->
+        <!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

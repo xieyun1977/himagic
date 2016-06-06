@@ -1,0 +1,14 @@
+<script type="text/javascript" src="/js/layer/layer2.js"></script>
+<script>
+    var flg=parseInt('{$smarty.session.user_id}');
+    if (flg<1)
+    {
+        //登陆弹框
+        layer.open({
+            type: 2, //type值为2，表示弹出iframe层
+            title: '',
+            area: ['370px', '350px'], //宽高
+            content: 'tk_dl.html'
+        });
+    }
+</script>

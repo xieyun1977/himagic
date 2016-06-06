@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>魔法城</title>
+
+    <link href="css/dl-zc.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    {* 包含脚本文件 *}
+    {insert_scripts files='user.js,transport.js'}
+    {insert_scripts files='utils.js'}
+</head>
+<body>
+<div id="big-back">
+    <script type="text/javascript">
+        {foreach from=$lang.password_js item=item key=key}
+        var {$key} = "{$item}";
+        {/foreach}
+    </script>
+
+    <div id="dl-zc">
+        <!--找回密码4找回密码成功-->
+        <!--{if $info eq 'success'}-->
+            <form class="from-alls">
+                <h1>找回密码</h1>
+                <div class="schedule">
+                    <div class="le-backd">
+                        <a></a>
+                    </div>
+                    <div class="le-textd">设置成功</div>
+                </div>
+                <div class="sub-btn">
+                    <img src="/images/dl-zc/bf.png">
+                    <div class="gx-mm">
+                        <p>恭喜你密码已找回！</p>
+                        <a href="user.php?act=login" id="small-backs">去登陆</a>
+                    </div>
+                </div>
+
+            </form>
+        <!--{else}-->
+        <!--找回密码3重设密码-->
+        <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()" class="from-alls">
+            <h1>找回密码</h1>
+            <div class="schedule">
+                <div class="le-backc">
+                    <a><img src="/images/dl-zc/dt2.png"></a>
+                </div>
+                <div class="le-textc">设置新密码</div>
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.new_password}</label>
+                <input type="password" class="form-control" name="new_password">
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.confirm_password}</label>
+                <input type="password" class="form-control" name="confirm_password">
+            </div>
+
+            <br>
+            <div class="sub-btn"><input type="hidden" name="act" value="act_edit_password" />
+                <input type="hidden" name="uid" value="{$uid}" />
+                <input type="hidden" name="code" value="{$code}" />
+                <input type="submit" name="submit" value="{$lang.confirm_submit}" class="ui-button" id="small-backs"/>
+            </div>
+
+        </form>
+        <!--{/if}-->
+    </div>
+</div>
+</body>
+</html>

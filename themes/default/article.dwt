@@ -1,0 +1,66 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<div id="bosess">
+<section id="inside-pages">
+    <div class="pages-title">
+        <!--{if $title eq '魔术世界'} -->
+        <img src="/images/titles/imgmssj.png"><img src="/images/titles/mssj.png"><a href="/article_cat.php?id=23">Read More+</a>
+        <!--{elseif $title eq '魔幻影音'}-->
+        <img src="/images/titles/imgmhyx.png"><img src="/images/titles/mhyy.png"><a href="/article_cat.php?id=29">Read More+</a>
+        <!--{elseif $title eq '魔幻游戏'}-->
+        <img src="/images/titles/imgmhyy.png"><img src="/images/titles/mhyx.png"><a href="/article_cat.php?id=35">Read More+</a>
+        <!--   {elseif $title eq '魔咪资讯'} -->
+        <img src="/images/titles/imgmmzx.png"><img src="images/titles/mmzx.png">
+        <!--   {elseif $article.title eq '运营时间'} -->
+        <img src="/images/account/yy.png"><img src="/images/account/yy_title.png">
+        <!--   {elseif $article.title eq '玩转魔法城'} -->
+        <img src="/images/account/wz.png"><img src="/images/account/wz_title.png">
+        <!--   {/if} -->
+    </div>
+
+            <!--   {if $article.title eq '玩转魔法城'} -->
+            <div class="pages-boxs">
+                <div class="back-all wzmfc">
+                    <div class="wzmfc-box">
+                        {$article.content}
+                        <div class="bottomss">
+                            {$article.description}
+                            </div>
+                    </div>
+                    <!--{elseif $article.title eq '运营时间'} -->
+            <div class="pages-boxs">
+                <div class="back-all">
+                    <div class="yy-box">
+                        {$article.content}
+                    </div>
+
+            <!--{else}-->
+                    <div class="pages-boxs">
+                        <div class="refer-page">
+            <h1>{$article.title|escape:html}</h1>
+            <h3>{$article.add_time} &nbsp;&nbsp;{$article.author|escape:html}</h3>
+
+            {$article.content}
+            <!-- {/if} -->
+            <!--
+            <div style="padding:18px; margin-top:15px; text-align:left; border-top:1px solid #FFF1E1;color: #ffffff;">
+                <!-- 上一篇文章 -->
+                {if $next_article}
+                {$lang.next_article}：<a style="color: #ccc;" href="{$next_article.url}"  >{$next_article.title}</a><br />
+                 {/if}
+                <p>&nbsp;</p>
+                <!-- 下一篇文章 -->
+                {if $prev_article}
+                {$lang.prev_article}：<a style="color: #ccc;" href="{$prev_article.url}"  >{$prev_article.title}</a>
+                {/if}
+
+            </div>
+        -->
+        </div>
+
+    </div>
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

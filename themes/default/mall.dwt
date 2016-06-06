@@ -1,0 +1,17 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+    <!--补充魔咪商城-->
+    <section id="online_booking"></section>
+    <style>
+        #online_booking{
+            width:1000px;
+            margin:60px auto 0;
+            background:url(/images/mmsc.jpg) no-repeat center;
+            height:692px;
+        }
+    </style>
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

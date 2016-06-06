@@ -1,0 +1,149 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<link href="/css/common.css" type="text/css" rel="stylesheet">
+<link href="/css/dppage.css" type="text/css" rel="stylesheet">
+<script src="/js/custom3.js" type="text/javascript"></script>
+<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+
+<!--日期-->
+
+<!--数量增加减少-->
+<link rel="stylesheet" href="/css/jquery.spinner.css" />
+<script src="/js/jquery.spinner.js" ></script>
+
+<!--日期-->
+<link rel="stylesheet" href="/css/styles_multi.css" />
+<link rel="stylesheet" href="/css/jquery-ui-1.10.4.custom.min.css" />
+<script src="/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="/js/jquery.ui.datepicker-zh-CN.min.js"></script>
+{insert_scripts files='common.js,buy_ticket.js,transport.js'}
+
+<!--检查是否登录-->
+<!-- #BeginLibraryItem "/lib/chklogin.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+    $(function() {
+        $('.spinner').spinner({});
+        $("#buydate").datepicker({
+            onSelect : function(selectedDate) {
+                var nextday = selectedDate;
+            }
+        });
+        $("#buydate").datepicker("option", "minDate", today);
+        $('#buydate').datepicker('setDate',today);
+//        alert(today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.gestDate())
+    });
+
+</script>
+<div id="datepicker_div"></div>
+
+<div id="bosess">
+
+    <!--内页正文-->
+    <section id="inside-pages">
+        <div class="pages-title"><img src="/images/mp_xx/mp.png"><img src="/images/mp_xx/mp_title.png"></div>
+
+        <div class="pages-boxs">
+            <div class="back-all">
+                <div class="dp-titles">
+                    <a href="" class="dptactive">
+                        <h1>1</h1>
+                        <small>选择订票日期</small>
+                    </a>
+                    <a href="">
+                        <h1>2</h1>
+                        <small>填写订单</small>
+                    </a>
+                    <a href="">
+                        <h1>3</h1>
+                        <small>付款及信息确认</small>
+                    </a>
+                    <a href="">
+                        <h1>4</h1>
+                        <small>支付完成</small>
+                    </a>
+                </div>
+                <div class="dp_forms">
+                        <div class="form-hao">
+                            <label>选择订票日期</label>
+                            <input type="date" id="buydate" value=""   class="datepickck_style1"  style="width: 200px" />
+                        </div>
+                        <div class="form-hao">
+                            <label>选择门票类别</label>
+                        </div>
+                        <table width="100%" border="0" cellspacing="0">
+                            <thead id="titletable">
+                            <tr>
+                                <td width="40%">商品名称</td>
+                                <td width="20%">门店价</td>
+                                <td width="15%">商城价</td>
+                                <td width="15%">数量</td>
+                                <td width="15%"></td>
+
+                            </tr>
+                            </thead>
+                            <tbody id="listtable">
+                            <!-- {foreach from=$rows item=row key=k}-->
+                            <form action="javascript:addTicket({$row.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+                            <tr>
+                                <td>{$row.goods_name}</td>
+                                <td>{$row.market_price}</td>
+                                <td class="red">{$row.shop_price}</td>
+                                <td>
+                                    <input type="text" class="spinner"  id="number{$k}" maxlength="2" />
+                                </td>
+                                <td>
+                                    <div class="form-last" style="margin-top: -2px;margin-left: 10px">
+                                    <a href="javascript:addTicket('{$k}',{$row.goods_id});">点击购买</a>
+                                        </div>
+                                </td>
+                            </tr>
+                            </form>
+                            <!--{/foreach}-->
+                            <span id="ECS_GOODS_AMOUNT" style="display: block;"></span>
+                            </tbody>
+                        </table>
+                        <div class="form-last">
+                            <p>*&nbsp;备注：该价格为暂定价，开园以园内实际售卖价格为准！</p>
+
+                        </div>
+
+                </div>
+                <div class="matters-infor">
+                    <h2>注意事项</h2>
+                    <p>1、同一凭证号必须一次性取票或一次性入园，过期作废。</p>
+                    <p>2、购票请确认游玩日期，一经支付成功，不可更改。</p>
+                    <p>3、购票后如遇园区推出优惠促销，恕不另行通知，不能同时享受该优惠。</p>
+                    <p>4、购票信息请注意保密，因游客个人原因泄露该信息而造成的损失由游客自行承担。</p>
+                    <p>5、购票时填写的取票人信息必须是实际入园人真实信息，若因信息有误造成的纠纷与损失均由游客自 行承担。
+                    </p>
+                    <p>6、购买儿童长者票的游客，如儿童身高超过标准或长者游客入园时未能出示有效的身份证明文件，游客须按门市价 补回差额或自行重新购票。
+                    </p>
+                    <p>7、游客只能购买90天内指定日期的门票。</p>
+                    <p>8、游客购票须允许本网站将有关订票信息以短信或彩信方式发送至订票手机上。</p>
+                    <p>9、活动内容如有变动，以当日公告为准。所有游乐项目均会定期进行日检、周检和年度检查，相关检修工作可能会 造成部分游乐项目运行时间延迟或暂停对游客开放，详情以项目现场公告为准。
+                    </p>
+                    <p>10、进入园区，游客必须接受安全检查，严禁携带管制器具、枪支弹药、易燃易爆物品、食品、 饮料等物品入园。
+                    </p>
+                    <p>11、游玩前请参阅公园的开放时间、表演时间及注意事项。</p>
+
+                </div>
+
+            </div>
+        </div>
+
+<script>
+    var now=new Date();
+    var tt=now.getDate()+1;
+    now.setDate(tt);
+//    $("#buydate").val(today);
+//alert(document.getElementById("buydate").value)
+    var day=now.format('yyyy-MM-dd');
+    $("#buydate").val(day);
+    $("#buydate").attr('min',day);
+//alert($("#buydate").val())
+</script>
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>魔法城</title>
+
+    <link href="css/dl-zc.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    {* 包含脚本文件 *}
+    {insert_scripts files='user.js,transport.js'}
+    {insert_scripts files='utils.js'}
+</head>
+<body>
+<div id="big-back">
+    <!--找回密码2发送验证邮件-->
+    <div id="dl-zc">
+        <form class="from-alls">
+            <h1>找回密码</h1>
+            <div class="schedule">
+                <div class="le-backb">
+                    <a><img src="/images/dl-zc/dt2.png"></a>
+                </div>
+                <div class="le-textb">发送验证邮件</div>
+            </div>
+
+            <div class="email-text">
+            <!--{if $ret eq 'success'} -->
+                <p>系统已发送重置密码邮件至您的邮箱<small>{$email},</small>请在2小时内完成密码修改。
+                </p>
+                <p>如果您长时间没有收到邮件，请检查您的垃圾信箱并将我们的发送账号<small>mofacheng@aliyun.com</small> 加入白名单！
+                </p>
+            <!--{else}-->
+                <p> {$info}
+                </p>
+            <!--{/if}-->
+            </div>
+                <br>
+            <div class="sub-btn">
+                <input type="button" value="返回" class="ui-button" id="small-backs"
+                <!--{if $ret neq 'success'} -->
+                       onclick="history.go(-1);"
+                <!--{else}-->
+                    onclick="window.location.href='/';"
+                <!--{/if}-->
+                />
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

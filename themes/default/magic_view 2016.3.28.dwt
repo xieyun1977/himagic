@@ -1,0 +1,20 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+<!--图片左切换-->
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="js/simplefoucs2.js" type="text/javascript"></script>
+
+<script src="js/jscarousel.js" type="text/javascript"></script>
+<script src="js/Tony_Tab2.js" type="text/javascript" ></script>
+<!--内页正文-->
+<section id="inside-pages">
+    <div class="pages-title"><img src="images/titles/imgmhyy.png"><img src="images/titles/mhyy.png"></div>
+    <div class="pages-boxs">
+        {$article.content}
+    </div>
+    <div class="btnsvis"></div>
+    <div class="return"><a href="http://139.196.177.239/magic.php?id=29">返回上页</a></div>
+
+
+    <!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

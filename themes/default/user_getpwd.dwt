@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>魔法城</title>
+
+    <link href="css/dl-zc.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    {* 包含脚本文件 *}
+    {insert_scripts files='user.js,transport.js'}
+    {insert_scripts files='utils.js'}
+</head>
+<script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+    var {$key} = "{$item}";
+    {/foreach}
+</script>
+<div id="big-back">
+    <!--找回密码1输入电子邮箱-->
+    <div id="dl-zc">
+        <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();" class="from-alls">
+            <h1>找回密码</h1>
+            <div class="schedule">
+                <div class="le-backa"><a><img src="/images/dl-zc/dt2.png"></a></div>
+                <div class="le-texta">输入电子邮箱</div>
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_username}</label>
+                <input type="text" class="form-control" placeholder="请输入用户名" name="user_name"  onclick="this.value=''">
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_email}</label>
+                <input type="text" class="form-control" placeholder="请输入邮箱"  name="email" id="email" onblur="checkEmail(this.value);">
+            </div>
+            <br>
+            <input type="hidden" name="act" value="send_pwd_email" />
+            <div class="sub-btn">
+                <input type="submit" value="下一步" class="ui-button" id="small-backs">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="title-div"><img src="images/forget.gif" width="158" height="39"  alt="" /></div>
+<div class="content-div">
+    <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+        <br />
+        <table width="70%" border="0" align="center">
+            <tr>
+                <td colspan="2" align="center"><strong>{$lang.username_and_email}</strong></td>
+            </tr>
+            <tr>
+                <td width="39%" align="right">{$lang.username}:</td>
+                <td width="61%"><input name="user_name" type="text" size="30" /></td>
+            </tr>
+            <tr>
+                <td align="right">{$lang.email}:</td>
+                <td><input name="email" type="text" size="30" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="hidden" name="act" value="send_pwd_email" />
+                    <input type="submit" name="submit" value="{$lang.confirm_submit}" />
+                    <input name="button" type="button" onclick="history.back()" value="{$lang.back_page_up}" />            </td>
+            </tr>
+        </table>
+        <br />
+    </form>
+</div>
+<div style="float:left;"><img src="images/page_right.gif" alt="" /></div>
+</div>
+<!-- End #globalWrapper -->
+<script type="text/javascript">
+    var process_request = "{$lang.process_request}";
+    {foreach from=$lang.passport_js item=item key=key}
+    var {$key} = "{$item}";
+    {/foreach}
+    var username_exist = "{$lang.username_exist}";
+</script>
+</body>
+</html>

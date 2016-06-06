@@ -1,0 +1,7 @@
+                    <li {if $act eq xs} class="tabactive" {/if}><a href="/product.php?act=xs">小说</a></li>
+                    <li {if $act eq dm} class="tabactive" {/if}><a href="/product.php?act=dm">动漫</a></li>
+                    <li {if $act eq gbj} class="tabactive" {/if}><a href="/product.php?act=gbj">广播剧</a></li>
+                    <li {if $act eq yx} class="tabactive" {/if}><a href="/product.php?act=yx">游戏</a></li>
+                    <li {if $act eq cs} class="tabactive" {/if}><a href="/product.php?act=cs">COSPLAY</a></li>
+                    <li {if $act eq ys} class="tabactive" {/if}><a href="/product.php?act=ys">影视</a></li>
+                    <li {if $act eq more} class="tabactive" {/if}><a href="/product.php?act=more">更多下载</a></li>

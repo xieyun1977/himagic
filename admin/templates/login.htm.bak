@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$lang.cp_home}{if $ur_here} - {$ur_here}{/if}</title>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> <LINK href="/favicon.ico" 
+rel="shortcut icon" type="image/x-icon"> <LINK href="templates/admin/login.css" 
+rel="stylesheet" type="text/css" media="all"> 
+{literal}
+<STYLE type="text/css">
+#bg {
+width:608px;
+height:512px;
+margin:0px auto;
+padding:0px auto;
+text-align:center;
+background:url(templates/admin/login_bg.png) no-repeat left top !important; 
+
+/*For Firefox*/
+*background:none;
+/*For IE7 & IE6*/
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='templates/admin/login_bg.png',sizingMethod='crop');
+}
+.login {clear:both; width:127px;height:44px;line-height:26px;text-align:center; font-weight:bold; border:none;color:white;
+background:url(templates/admin/login_btn.png) no-repeat left top !important; 
+/*For Firefox*/
+*background:none;
+/*For IE7 & IE6*/
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='templates/admin/login_btn.png',sizingMethod='crop');
+}
+</STYLE>
+ {/literal}
+{insert_scripts files="../js/utils.js,validator.js"}
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+{foreach from=$lang.js_languages key=key item=item}
+var {$key} = "{$item}";
+{/foreach}
+{literal}
+if (window.parent != window)
+{
+  window.top.location.href = location.href;
+}
+{/literal}
+//-->
+</script>
+<META name="GENERATOR" content="MSHTML 11.00.9600.16476"></HEAD> 
+<BODY>
+<DIV id="bg">&nbsp;
+<DIV id="login">
+<DIV style="margin: 150px 0px 0px 360px;">
+<form method="post" action="privilege.php" name='theForm' onsubmit="return validate()">
+	<INPUT name="submit" type="hidden" value="提交">      
+	<INPUT name="username" tabindex="1" class="input" id="username" type="text"> 
+  <INPUT name="password" tabindex="2" class="input" id="password" type="password"> 
+  <!--
+    <SELECT name="expire" class="ss"><OPTION value="" 
+  selected="">登录有效期-当前会话</OPTION>       <OPTION value="86400">登录有效期-1天</OPTION>  
+       <OPTION value="2592000">登录有效期-1月</OPTION>       <OPTION 
+  value="31536000">登录有效期-1年</OPTION>     </SELECT>   
+  -->   
+<P class="code">验证码: 
+<INPUT name="verify" tabindex="3" id="verify" type="text">
+<img style="position:absolute; clip:rect(0px 100px 30px 40px);" src="index.php?act=captcha&{$random}" align="absmiddle" width="145" height="25" alt="CAPTCHA" border="0" onclick= this.src="index.php?act=captcha&"+Math.random() style="cursor: pointer;" title="{$lang.click_for_another}" />
+     
+        </P>
+<P><INPUT name="submit" tabindex="4" class="login" value="{$lang.signin_now}" type="submit" value=" 登 陆 "></P>
+<!--&raquo; <a href="../" style="color:white">{$lang.back_home}</a> &raquo; <a href="get_password.php?act=forget_pwd" style="color:white">{$lang.forget_pwd}</a> -->
+  <input type="hidden" name="act" value="signin" />
+</FORM>
+<DIV style="clear: both;"></DIV></DIV></DIV></DIV>
+<DIV class="clear"></DIV>
+<DIV class="clear"></DIV>
+<DIV id="footer">Copyright © 2015 Powered by <A title="CmsEasy企业网站系统" href="http://www.cmseasy.cn/" 
+target="_blank">CmsEasy</A></DIV>
+<SCRIPT type="text/javascript">
+function ResumeError()
+{
+    return true;
+}
+window.onerror = ResumeError;
+document.loginform.username.focus();
+</SCRIPT>
+ </BODY></HTML>

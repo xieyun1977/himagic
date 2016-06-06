@@ -1,0 +1,156 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<div id="bosess">
+
+
+    {* 包含脚本文件 *}
+    {insert_scripts files='utils.js,transport.js,region.js,shopping_flow.js'}
+    <script type="text/javascript">
+        region.isAdmin = false;
+        {foreach from=$lang.flow_js item=item key=key}
+        var {$key} = "{$item}";
+        {/foreach}
+        {literal}
+        onload = function() {
+            if (!document.all)
+            {
+                document.forms['theForm'].reset();
+            }
+        }
+        {/literal}
+    </script>
+    <!--内页正文-->
+    <section id="inside-pages">
+        <div class="pages-title"><img src="/images/account/wdmm.png"><img src="/images/account/ztly_title.png"></div>
+
+        <div class="pages-boxs">
+            <div class="back-all">
+
+                <div class="book-left">
+                    <ul>
+                        <li><a href="" class="bk-active"><h3>账号设置</h3><small>novels and comics</small></a></li>
+                        <li>
+                            <a href="javascript:;"><h3>我的订单</h3><small>All products</small></a>
+                            <div class="book-samllnav">
+                                <a href=""><h3>票务订单</h3><small>Paper periphery</small></a>
+                                <a href=""><h3>商城订单</h3><small>PRops and toys</small></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="book-right">
+                    <div class="bkr-titles">
+                        <a href="/user.php?act=profile">基本信息</a>
+                        <a href="#" class="titlestive">收货地址</a>
+                    </div>
+                    <div class="bkr-cons">
+                        <form action="user.php" method="post" name="theForm" onsubmit="return checkConsignee(this)">
+                            <div class="for-szs">
+                                <label><span>*</span>收货人</label>
+                                <input name="consignee" type="text" id="consignee_{$sn}" value="{$consignee.consignee|escape}" class="ptinpu" />
+                            </div>
+                            <div class="for-szs">
+                                <label><span>*</span>手机</label>
+                                <input name="tel" type="text" id="tel_{$sn}" value="{$consignee.tel|escape}" class="ptinpu"/>
+                            </div>
+                            <div class="for-szs">
+                                <label><span>*</span>所在地区</label>
+                                    <select name="country" id="selCountries_{$sn}" onchange="region.changed(this, 1, 'selProvinces_{$sn}')" class="m-lz">
+                                        <option value="0">{$lang.please_select}{$name_of_region[0]}</option>
+                                        <!-- {foreach from=$country_list item=country} -->
+                                        <option value="{$country.region_id}" {if $consignee.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+                                        <!-- {/foreach} -->
+                                    </select>
+                                <select name="province" id="selProvinces_{$sn}" onchange="region.changed(this, 2, 'selCities_{$sn}')">
+                                    <option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+                                    <!-- {foreach from=$provinces item=province} -->
+                                    <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+                                    <!-- {/foreach} -->
+                                </select>
+                                <select name="city" id="selCities_{$sn}" onchange="region.changed(this, 3, 'selDistricts_{$sn}')">
+                                    <option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+                                    <!-- {foreach from=$citys item=city} -->
+                                    <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+                                    <!-- {/foreach} -->
+                                </select>
+                                <select name="district" id="selDistricts_{$sn}" {if !$district_list.$sn}style="display:none"{/if}>
+                                <option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+                                <!-- {foreach from=$districts item=district} -->
+                                <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+                                <!-- {/foreach} -->
+                                </select>
+                            </div>
+                            <div class="for-szs">
+                                <label><span>*</span>详细地址</label>
+                                <input name="address" type="text" id="address_{$sn}" value="{$consignee.address|escape}"  class="ptinpu ptinpu2"/>
+                                <p>
+                                    <a class="sw-zzd"><img src="/images/account/sz-dg.jpg"></a>
+                                    设为默认配送地址</p>
+                            </div>
+                            <input type="hidden" name="act" value="act_edit_address" />
+                            <input name="address_id" type="hidden" value="{$consignee.address_id}" />
+                            <input name="default" type="hidden" value="1" />
+                            <button class="sub-tj sub-tj2">确 定</button>
+                        </form>
+                    </div>
+                    <div class="bkr-adress">
+                        <table border="0" cellspacing="0" cellpadding="0" class="tbl-main" width="645">
+                            <thead>
+                            <tr>
+                                <td width="15%" class="lethbor">收件人</td>
+                                <td width="44%">收货地址</td>
+                                <td width="18%">手机</td>
+                                <td width="10%">&nbsp;</td>
+                                <td width="13%">&nbsp;</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- {foreach from=$consignee_list item=consignee key=sn} -->
+                            <tr>
+                                <td class="lebord">{$consignee.consignee|escape}</td>
+                                <td>{$consignee.address|escape}</td>
+                                <td>{$consignee.tel|escape}</td>
+                                <td>
+                                    <a href="/user.php?act=address_list&address_id={$consignee.address_id}"><img src="/images/account/xg.png"></a>
+                                    <a onclick="confirmDelAdd({$consignee.address_id});" class="del"><img src="/images/account/del.png"></a>
+                                </td>
+                                <td class="thead-tbl-status">
+                                    <a property="{$consignee.address_id}" class="{if $default_aid eq $consignee.address_id}notes{/if}" href="javascript:;"></a>
+                                </td>
+                            </tr>
+                            <!-- {/foreach} -->
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--页脚-->
+        <!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->
+        <script>
+            //设为默认样式
+            $(".thead-tbl-status a").click(function() {
+                $(".thead-tbl-status a").removeClass("notes");
+                $(this).addClass("notes")
+                var aid=$(this).attr("property");
+                Ajax.call( '/user.php?act=setaddress&address_id=' +aid);
+            })
+            $(".pages-boxs .book-right .bkr-cons .for-szs p .sw-zzd").click(function() {
+                $(".pages-boxs .book-right .bkr-cons .for-szs p .sw-zzd img").toggle();
+                var frm=document.forms["theForm"];
+                if(!frm.elements["default"].value)
+                    frm.elements["default"].value=1;
+                else
+                    frm.elements["default"].value=0;
+                alert(frm.elements["default"].value)
+            })
+            function confirmDelAdd(id)
+            {
+                var flg=window.confirm("你确定要删除该地址吗？");
+                if(flg)
+                {
+                    window.location.href='/user.php?act=deladdress&address_id='+id;
+                }
+            }
+        </script>

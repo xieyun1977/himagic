@@ -1,0 +1,19 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<link href="/css/common.css" type="text/css" rel="stylesheet">
+<link href="/css/dppage.css" type="text/css" rel="stylesheet">
+<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="/js/custom3.js" type="text/javascript"></script>
+<script type="text/javascript" src="layer/layer.js"></script>
+
+<div id="bosess">
+
+    <!--内页正文-->
+    <section id="inside-pages">
+
+
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

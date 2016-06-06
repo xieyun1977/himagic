@@ -1,0 +1,42 @@
+html {
+	width: 100%; height: 100%; overflow: hidden; -ms-scrollbar-face-color: rgb(245, 245, 245); -ms-scrollbar-arrow-color: rgb(160, 160, 160);
+}
+img {
+	border: 0px currentColor; border-image: none;
+}
+* {
+	margin: 0px; padding: 0px;
+}
+a {
+	color: white; text-decoration: none;
+}
+body {
+	background: url("bg.jpg") left top rgb(85, 85, 85); text-align: center;
+}
+#login {
+	margin: 0px auto; text-align: left; color: white; font-size: 12px;
+}
+.input {
+	border: currentColor; border-image: none;
+}
+#footer {
+	margin: 0px auto; width: 100% !important; height: 44px; text-align: center; bottom: 0px; color: rgb(158, 210, 109); line-height: 22px; clear: both; font-size: 12px; display: block; position: absolute;
+}
+#footer a {
+	color: rgb(158, 210, 109);
+}
+#username {
+	background: url("username.gif") no-repeat; width: 210px; height: 26px; line-height: 26px; padding-left: 30px; font-size: 14px; font-weight: bold; margin-left: 8px;
+}
+#password {
+	background: url("password.gif") no-repeat; margin: 12px 0px 6px 8px; width: 210px; height: 26px; line-height: 26px; padding-left: 30px; clear: both; font-size: 14px; font-weight: bold;
+}
+#verify {
+	width: 80px; height: 26px; font-size: 14px; font-weight: bold; margin-bottom: 12px;
+}
+.ss {
+	margin: 10px 8px 6px; height: 26px; clear: both;
+}
+.code {
+	margin: 10px 9px 0px; vertical-align: middle;
+}

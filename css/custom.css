@@ -1,0 +1,490 @@
+
+
+/*首页*/
+#wrapper{
+	width:1000px;
+	margin:130px auto 0;
+}
+
+
+.topwaps{
+	position:relative;
+	overflow:hidden;
+}
+<!--头部左切换-->
+.bannerbox{ 
+    width: 316px; 
+	height: 378px; 
+	overflow: hidden; 
+	position:absolute;
+	top:0;
+	left:0;
+}
+.bannerbox .tbacs{
+	background-image:url(../images/top-imgs.png);
+	width: 316px; 
+	height: 378px;
+	position:absolute;
+	top:0;
+	left:0;
+}
+#focus { 
+    width: 316px; 
+	height: 378px; 
+	clear: both; 
+	overflow: hidden; 
+	position: relative;
+	float: left;
+}
+#focus ul { 
+    width: 316px; 
+	height: 378px; 
+	float: left; 
+	position: absolute; 
+	clear: both; 
+	padding: 0px;
+	 margin: 0px; 
+}
+#focus ul li { 
+    float: left; 
+	width: 316px; 
+	height: 378px; 
+	overflow: hidden; 
+	position: relative; 
+	padding: 0px; 
+	margin: 0px; 
+}
+ #focus .preNext { 
+     width: 550px; 
+	 height: 447px; 
+	 position: absolute; 
+	 top: 0px; 
+	 cursor: pointer; 
+}
+#focus .pre {
+	position:absolute;
+    right: 60px;
+	top:340px;
+	width:8px;
+	height:13px; 
+	z-index:999;
+	background:url(../images/tlefts.png) no-repeat left center; 
+}
+#focus .next {
+	position:absolute;
+    right: 35px;
+	top:340px;
+	width:8px;
+	height:13px;
+	z-index:999;
+    background:url(../images/trigths.png) no-repeat right center; 
+}
+
+
+
+
+
+
+/*视频*/
+.videos{
+	width:1000px;
+	height:444px;
+	position:relative;
+	margin:7px auto 0;
+}
+.videos .vi_back{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:888;
+}
+
+.vid-a{
+	position:absolute;
+	top:12px;
+	right:12px;
+	z-index:999
+}
+.vid-a a{
+	cursor:pointer;
+	display:block;
+	width:102px;
+	height:36px;
+	float:left;
+	color:#ffffff;
+	font-size:16px;
+	line-height:36px;
+	background-image:url(../images/bac.png);
+	text-align:center;
+}
+.vid-a .vaxt{
+	background-image:url(../images/ban3.png);
+}
+.vid-warp{
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+
+
+
+
+/*内容*/
+#container{
+	background-image:url(../images/wapbac.png);
+	width:1000px;
+	background-size:1000px 1468px;
+	height:1468px;
+	margin:10px auto 0;
+}
+
+/*魔法商城和魔幻公园*/ 
+#container .inall{
+	overflow:hidden;
+}
+#container .inall .inaleft{
+	float:left;
+}
+.inaleft{
+	padding-top:8px;
+	padding-left:18px;
+}
+.t-title{
+	overflow:hidden;
+}
+
+/*魔法商城*/
+.inaleft .i-t{
+	overflow:hidden;
+
+}
+.inaleft .i-t .t-title{
+	overflow:hidden;
+
+}
+.inaleft .i-t .t-title span{
+	display:block;
+	margin-top:-8px;
+	float:left;
+	position:relative;
+}
+.inaleft .i-t .t-title a{
+	display:block;
+	float:left;
+}
+.inaleft .t-bottom{
+	padding-top:48px;
+	clear:both
+}
+
+
+
+
+
+
+
+
+/*魔幻公园*/
+.inaleft .i-b{
+	overflow:hidden;
+	padding-top:30px;
+}
+
+.inaleft .i-b .t-title span{
+	display:block;
+	margin-top:-8px;
+	float:left;
+}
+.inaleft .i-b .t-title a{
+	display:block;
+	float:left;
+}
+.inaleft .i-b .b-bottom{
+	padding-top:16px;
+	clear:both
+}
+
+
+/*魔咪咨询*/
+.inaright{
+	float:right;
+	width:495px;
+	font-family:"微软雅黑";
+	margin-right:2px;
+}
+.inaright .t-title{
+	overflow:hidden;
+	margin-left:40px;
+}
+.inaright .t-title span{
+	display:block;
+	float:left;	
+}
+
+.inaright .t-title a{
+	display:block;
+	float:left;
+}
+.inaright .right-list ul li{
+	margin-top:5px;
+}
+.inaright .right-list ul li:first-child{
+	margin-top:0;
+}
+.inaright .right-list ul li a{
+	display:block;
+	height:157.5px;
+    transition:all 0.3s;
+    -moz-transition:all 0.3s;    /* Firefox 4 */
+    -webkit-transition:all 0.3s;  /* Safari and Chrome */
+    -o-transition:all 0.3s;  /* Opera */
+}
+.inaright .right-list ul li a:hover{
+	background-color:#694521;
+}
+
+.inaright .right-list .l-text{
+	float:left;
+	width:370px;
+	padding-left:16px;
+	margin-top:43px;
+}
+.inaright .right-list .l-text h5{
+	color:#aa8052;
+	font-size:14px;
+	margin-bottom:30px;
+}
+.inaright .right-list .l-text p{
+	font-size:12px;
+	color:#d4d1d1;
+	line-height:22px;
+}
+.inaright .right-list .dates{
+	width:70px;
+	height:100px;
+	position:relative;
+	float:left;
+	margin-top:35px;
+	margin-left:26px;
+}
+.inaright .right-list .dates .datestop{
+	position:absolute;
+	top:0;
+	left:0;
+}
+.inaright .right-list .dates h3{
+	position:absolute;
+	left:16px;
+	top:18px;
+	color:#5c1c06;
+	font-size:27px;
+}
+
+.inaright .right-list .dates p{
+	position:absolute;
+	left:5px;
+	top:75px;
+	font-size:14px;
+	font-weight:bold;
+	color:#e6c07c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*魔幻作品*/
+.production{
+	padding-top:35px;
+	overflow:hidden;
+}
+.production .t-title{
+	overflow:hidden;
+	margin:-10px auto 0;
+	width:206px;
+	height:66px;
+}
+.production .t-title a{
+	display:block;
+}
+.production .btn {
+	overflow:hidden;
+	width:930px;
+	margin:10px auto 0;
+}
+.production .btn a{
+	display:block;
+	background-image:url(../images/zpb.png);
+	height:73px;
+	width:184px;
+	background-repeat:no-repeat;
+	float:left;
+	border-left:1px solid #2a1409;
+	border-right:1px solid #2a1409;
+	font-size:15px;
+	font-weight:bold;
+	color:#bd7843;
+	text-align:center;
+	line-height:73px;
+	font-family:"Adobe 黑体 std";
+	text-shadow:-3px 5px 10px #000000;
+	transition:all 1s;
+	-moz-transition:all 1s;    /* Firefox 4 */
+    -webkit-transition:all 1s;  /* Safari and Chrome */
+    -o-transition:all 1s;  /* Opera */
+	cursor:pointer;
+}
+.production .btn .current{
+	color:#f2b382;
+	background-image:url(../images/zpb2.png);
+}
+.production .btn a:hover{
+	color:#f2b382;
+	background-image:url(../images/zpb2.png);
+}
+.production .btn-conter{
+	overflow:hidden;
+	width:930px;
+	margin:0 auto;
+	height:389px;
+}
+.production .btn-conter img{
+	width:100%;
+}
+/*图片经过过光效果*/
+.estate_img{display:block; position: relative;overflow: hidden}
+.estate_img:before{ content: "";opacity: 0; position: absolute; width:200px; height: 100%; top:0; left: -150px; overflow: hidden;
+background: -moz-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.5)50%, rgba(255,255,255,0)100%);background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,.5)), color-stop(100%, rgba(255,255,255,0)));background: -webkit-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.5)50%, rgba(255,255,255,0)100%);background: -o-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.5)50%, rgba(255,255,255,0)100%);-webkit-transform: skewX(-25deg);-moz-transform: skewX(-25deg)}
+.estate_img:hover:before{ left: 150%; transition: left 1s ease 0s;opacity: 1}
+
+
+
+/*下面链接*/
+.b-links{
+	margin-top:25px;
+	padding-top:25px;
+	margin-left:35px;
+	overflow:hidden;
+}
+.b-links a{
+	display:block;
+	background-image:url(../images/peo-back.png);
+	background-repeat:no-repeat;
+	width:225px;
+	height:94px;
+	position:relative;
+}
+.b-links a span{
+	position:absolute;
+	display:block;
+	top:-16px;
+	left:6px;
+	transition:all 0.3s;
+	-moz-transition:all 0.3s;    /* Firefox 4 */
+    -webkit-transition:all 0.3s;  /* Safari and Chrome */
+    -o-transition:all 0.3s;  /* Opera */
+}
+.b-links a .ts2{
+	top:-40px;
+}
+.b-links a .ts3{
+	top:-21px;
+	left:30px;
+}
+.b-links a .ts4{
+	top:-31px;
+	left:18px;
+}
+.b-links a:hover span{
+	left:12px;
+}
+.b-links a{
+	float:left;
+	margin-left:6px;
+}
+.b-links a:first-chi;d{
+	margin-left:0;
+}
+.b-links a p{
+	position:absolute;
+	display:block;
+	top:37px;
+	right:30px;
+	transition:all 0.2s;
+	-moz-transition:all 0.2s;    /* Firefox 4 */
+    -webkit-transition:all 0.2s;  /* Safari and Chrome */
+    -o-transition:all 0.2s;  /* Opera */
+}
+.b-links a:hover p{
+	right:32px;
+
+}
+
+
+/*魔幻公园与魔法商城图片切换*/
+#zdtp{width:456px;height:230px;overflow:hidden;position:relative;margin-top:40px;}
+#zdtp ul{height:230px;position:absolute;}
+#zdtp ul li{float:left;width:456px;height:230px;overflow:hidden;position:relative;background:#000;}
+#zdtp ul li div{position:absolute;overflow:hidden;}
+#zdtp .btn{position:absolute;height:10px;padding:5px 10px;right:10px;bottom:10px;text-align:center;}
+#zdtp .btn span{display:inline-block;_display:inline;font-size:0;margin-left:12px;background-image:url(../images/off.png);width:10px;height:10px;}
+#zdtp .btn span.on{ background-image:url(../images/ons.png);}
+
+#zdtp2{width:456px;height:230px;overflow:hidden;position:relative;padding-top:10px;}
+#zdtp2 ul{height:230px;position:absolute;}
+#zdtp2 ul li{float:left;width:456px;height:230px;overflow:hidden;position:relative;background:#000;}
+#zdtp2 ul li div{position:absolute;overflow:hidden;}
+#zdtp2 .btn{position:absolute;height:10px;padding:5px 10px;right:10px;bottom:10px;text-align:center;}
+#zdtp2 .btn span{display:inline-block;_display:inline;font-size:0;margin-left:12px;background-image:url(../images/off.png);width:10px;height:10px;}
+#zdtp2 .btn span.on{ background-image:url(../images/ons.png);}
+
+
+
+
+
+
+
+/*首页视频按钮flash*/
+.vi-content{
+	width:1000px; height:444px;
+	position:relative;
+}
+.vi-content a{
+	display:block;
+	position:absolute;
+}
+.vi-content .videoann{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-50px;
+	margin-top:-50px;
+}
+.vi-content #shikk{
+	position:absolute;
+	display:block;
+	top:50%;
+	left:50%;
+	margin-left:-50px;
+	margin-top:-50px;
+	width:100px;
+	height:100px;
+	background-color:#ffffff;
+	opacity:0;
+	
+}
+
+
+
+
+

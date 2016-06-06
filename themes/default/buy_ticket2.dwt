@@ -1,0 +1,211 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<link href="/css/common.css" type="text/css" rel="stylesheet">
+<link href="/css/dppage.css" type="text/css" rel="stylesheet">
+<script src="/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<!--数量增加减少-->
+<link rel="stylesheet" href="/css/jquery.spinner.css" />
+<script src="/js/jquery.spinner.js" ></script>
+{insert_scripts files='common.js,utils.js,buy_ticket.js,transport.js,dp_flow.js"'}
+<script>
+    var goodsId = '{$goods_list[0].goods_id}';
+    var dat='{$buydate}';
+    if (dat=='') {
+        alert('请选择游玩日期！');
+        location.href='/goods.php?act=dp';
+    }
+    if(goodsId=='')
+    {
+        alert('请选择门票！');
+        location.href='/goods.php?act=dp';
+    }
+</script>
+<div id="bosess">
+
+    <!--内页正文-->
+    <section id="inside-pages">
+        <div class="pages-title"><img src="/images/mp_xx/mp.png"><img src="/images/mp_xx/mp_title.png"></div>
+
+        <div class="pages-boxs">
+            <div class="back-all">
+                <div class="dp-titles">
+                    <a href="" class="dptactive">
+                        <h1>1</h1>
+                        <small>选择订票日期</small>
+                    </a>
+                    <a href="" class="dptactive">
+                        <h1>2</h1>
+                        <small>填写订单</small>
+                    </a>
+                    <a href="">
+                        <h1>3</h1>
+                        <small>付款及信息确认</small>
+                    </a>
+                    <a href="">
+                        <h1>4</h1>
+                        <small>支付完成</small>
+                    </a>
+                </div>
+                <div class="dp_forms dp_forms2">
+                        <div class="form-hao">
+                            <label>确认订单信息</label>
+                        </div>
+                        <!-- 购物车内容 -->
+                        <form  method="post"  name="ECS_FORMBUY" id="ECS_FORMBUY" onsubmit="return checkOrderForm(this);">
+                        <table width="100%" border="0" cellspacing="0">
+                            <thead id="titletable">
+                            <tr>
+                                <td width="40%">商品名称</td>
+                                <td width="20%">日期</td>
+                                <td width="20%">价格</td>
+                                <td width="20%">数量</td>
+
+                            </tr>
+                            </thead>
+                            <tbody id="listtable">
+                            <!-- {foreach from=$goods_list item=goods} -->
+                            <tr>
+                                <td>{$goods.goods_name}</td>
+                                <td>{$buydate}</td>
+                                <td class="red">{$goods.goods_price}</td>
+                                <td>
+                                    <!--<input type="text" class="spinnerExample" />-->
+                                    <!-- {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0} 普通商品可修改数量 -->
+                                    <input type="text" class="spinner"  maxlength="2"  name="number" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" size="4" />
+                                    <!-- {else} -->
+                                    {$goods.goods_number}
+                                    <!-- {/if} -->
+                                </td>
+                            </tr>
+                            <!-- {/foreach} -->
+                            </tbody>
+                        </table>
+                        <div class="pay-money">
+                            <p>支付金额<em id="total">{$goods.subtotal}</em></p>
+                        </div>
+
+                        <div class="pages-ts">* 温馨提示：凡预定成功者，过期不退！</div>
+
+                        <div class="form-hao">
+                            <label>填写取票人信息</label>
+                        </div>
+                        <div class="form-people">
+                            <h3>取票人资料</h3>
+                            <div class="forn-rpeo">
+                                <label><span>*</span>姓名</label>
+                                <input type="text" class="peo-inout" name="username" value="{$address.username}"/>
+                                <p>所填姓名需与所持证件一致</p>
+                            </div>
+                            <div class="forn-rpeo">
+                                <label><span>*</span>手机号码</label>
+                                <input type="text" class="peo-inout" name="phone" value="{$address.phone}"/>
+                                <p>请输入11位的手机号（免费接收订单确认短信）</p>
+                            </div>
+                            <div class="forn-rpeo">
+                                <label><span>*</span>再次确认</label>
+                                <input type="text" class="peo-inout" name="" />
+                                <p>确认手机号码无误</p>
+                            </div>
+                            <div class="forn-rpeo">
+                                <label><span>*</span>身份证号码</label>
+                                <input type="text" class="peo-inout" name="idno" value="{$address.idno}"/>
+                                <p>请输入正确的二代身份证号码，配合手机号进行查询订单信息</p>
+                            </div>
+                            <div class="forn-rpeo">
+                                <label><span>*</span>再次确认</label>
+                                <input type="text" class="peo-inout" name="" />
+                                <p>确认身份证号码无误</p>
+                            </div>
+                        </div>
+                            <div class="dp_forms3">
+                                <div class="form-hao">
+                                    <label>可接受的付款方式</label>
+                                </div>
+                            <div class="payment_method">
+                                <ul>
+                                    <li>
+                                        <input type="hidden" name="payment"/>
+                                        <div class="radio radio1"></div>
+                                        <img src="/images/mp_xx/zfb.png">
+                                        <p><strong>支付宝支付</strong>网上支付宝账号支付</p>
+                                    </li>
+                                    <li>
+                                        <div class="radio radio2"></div>
+                                        <img src="/images/mp_xx/yl.png">
+                                        <p><strong>银联快捷支付 </strong>您仅需要一张银联卡，即享安全、便捷的支付体验</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            </div>
+                        <div class="bottom-pay">
+                            <div class="br-pay">
+                                <p><span>支付金额</span><em  id="ECS_GOODS_AMOUNT">
+                                    {$goods.subtotal}
+                                </em></p>
+                                <a href="#" onclick="submit()" target="_self">前去付款</a>
+                            </div>
+                        </div>
+
+                            <input type="hidden" name="step" value="tk_done" />
+                            <input type="hidden"  name="goods_id" value="{$goods.goods_id}" />
+                        </form>
+                </div>
+
+            </div>
+        </div>
+
+
+<script>
+    $('.spinner').spinner({value:{$number}});
+    $(".increase").bind("click",function(){ changePrice()});
+    $(".decrease").bind("click",function(){ changePrice()});
+    /**
+     * 点选可选属性或改变数量时修改商品价格的函数
+     */
+    function changePrice()
+    {
+//        alert(document.forms['ECS_FORMBUY']);
+        var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+        var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+        Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+    }
+    /**
+     * 接收返回的信息
+     */
+    function changePriceResponse(res)
+    {
+        if (res.err_msg.length > 0)
+        {
+            alert(res.err_msg);
+        }
+        else
+        {
+            document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+            if (document.getElementById('ECS_GOODS_AMOUNT'))
+            {
+                $('#total').text(res.result);
+                document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+            }
+        }
+    }
+    $(".radio1").click(function() {
+        $(this).css("background", "url(/images/mp_xx/cg_andx2.png)")
+        $(".radio2").css("background", "url(/images/mp_xx/cg_andx.png)")
+        document.forms[0].elements['payment'].value=4;
+    })
+    $(".radio2").click(function() {
+        $(this).css("background", "url(/images/mp_xx/cg_andx2.png)")
+        $(".radio1").css("background", "url(/images/mp_xx/cg_andx.png)")
+        document.forms[0].elements['payment'].value=5;
+    })
+    function submit()
+    {
+        if(checkOrderForm(document.forms[0]))
+            document.forms[0].submit();
+    }
+</script>
+        <!--页脚-->
+        <!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

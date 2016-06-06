@@ -1,0 +1,4 @@
+<data>
+<!--links url链接地址 enabled(是否启用true,false) win打开窗口方式（新窗口_blank,当前窗口_self）-->
+	<links url="https://www.baidu.com/" enabled="true" win="_balnk"/>
+</data>

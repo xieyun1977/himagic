@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>魔法城</title>
+
+    <link href="css/dl-zc.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    {* 包含脚本文件 *}
+    {insert_scripts files='user.js,transport.js'}
+    {insert_scripts files='utils.js'}
+</head>
+
+<body>
+<div id="big-back">
+    <!--注册-->
+    <div id="dl-zc">
+        <form action="user.php" method="post" name="formUser" onsubmit="return register();" class="from-alls">
+            <h1>欢迎注册</h1>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_username}</label>
+                <input name="username" type="text" id="username" class="form-control" placeholder="请输入用户名"  onblur="is_registered(this.value);"/>
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_email}</label>
+                <input type="text" class="form-control" placeholder="请输入邮箱"  name="email" id="email" onblur="checkEmail(this.value);">
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_password}</label>
+                <input name="password" type="password" id="password" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="post" class="control-label">{$lang.label_confirm_password}</label>
+                <input name="confirm_password" type="password" id="conform_password" onblur="check_conform_password(this.value);" class="form-control"/>
+            </div>
+            <div class="form-group form-group2">
+                <input type="text" class="form-control form-yzm"  name="captcha"   placeholder="验证码">
+                <div class="yam-text">
+                    <a><img id="my_image" src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;"
+                    /></a>
+                    <i id="chgimg">换一张</i>
+                </div>
+                <script>
+                    $("#my_image").bind("click", function() {
+                        $("#my_image").attr("src","captcha.php?"+Math.random());
+                    });
+                    $("#chgimg").bind("click", function() {
+                        $("#my_image").attr("src","captcha.php?"+Math.random());
+                    });
+                </script>
+            </div>
+            <div class="wj-post">
+                <div class="lefts">
+
+                    <!--<div class="zc-dgs" >-->
+                        <!--&lt;!&ndash;<input   name="agreement" type="hidden" value="0" />&ndash;&gt;-->
+                       <!--<img  src="/images/dl-zc/dg2.png">-->
+                    <!--</div>-->
+                   <input name="agreement" id="agreement"
+                                                  type="checkbox" value="1" checked="checked" />
+                    <label for="agreement" style="cursor: pointer"> 我已阅读并同意<small class="xys">《魔咪网会员注册协议》</small></label>
+                </div>
+            </div>
+            <div class="sub-btn">
+                <input name="act" type="hidden" value="act_register" >
+                <button type="submit" class="dl-btn"  id="small-backs">注册</button>
+                <button type="reset" class="reset" id="small-backs">取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="zc-xy">
+    <h3><p>魔咪网用户注册协议</p><a><img src="/images/dl-zc/xy-xx.png"></a></h3>
+    <div class="texts">
+        <!--xieyi-->
+        {$xieyi}
+    </div>
+    <a class="ty-js">同意并继续</a>
+</div>
+
+<script>
+    $(".from-alls .wj-post .zc-dgs").click(function() {
+        $(".from-alls .wj-post .zc-dgs img").toggle();
+        var frm  = document.forms['formUser'];
+        var agree = frm.elements['agreement'];
+        if(agree.value=="1")
+            agree.value="0";
+        else
+            agree.value="1";
+    //  alert(Utils.trim(frm.elements['agreement'].value))
+    })
+    $(".from-alls .wj-post .lefts label .xys").click(function() {
+        $(".zc-xy").css("display","block")
+    })
+    $(".zc-xy .ty-js").click(function() {
+        $(".zc-xy").css("display","none")
+    })
+    $(".zc-xy h3 a").click(function() {
+        $(".zc-xy").css("display","none")
+    })
+
+
+</script>
+<script type="text/javascript">
+    var process_request = "{$lang.process_request}";
+    {foreach from=$lang.passport_js item=item key=key}
+    var {$key} = "{$item}";
+    {/foreach}
+    var username_exist = "{$lang.username_exist}";
+</script>
+</body>
+
+</html>

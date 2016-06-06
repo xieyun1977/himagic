@@ -1,0 +1,79 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" -->
+<!-- #EndLibraryItem -->
+<script src="js/jscarousel.js" type="text/javascript"></script>
+
+<!--内页正文-->
+<div id="bosess">
+	<section id="inside-pages">
+		<div class="pages-title"><img src="images/titles/imgwhcp.png" alt="" /><img src="images/titles/whcp.png" alt="" /></div>
+		<div class="pages-boxs">
+			<div class="products">
+				<div class="tabs">
+					<ul>
+						<!--menu-->
+						{include file='product_menu.dwt'}
+					</ul>
+				</div>
+				{$article.content}
+
+				<script type="text/javascript">
+					//图片切换
+					var _index5 = 0;
+					$("#four_flash .but_right img").click(function() {
+						_index5++;
+						var len = $(".flashBg ul.mobile li").length;
+						if (_index5 + 5 > len) {
+							$("#four_flash .flashBg ul.mobile").stop().append($("ul.mobile").html());
+						}
+						$("#four_flash .flashBg ul.mobile").stop().animate({
+							left: -_index5 * 282
+						}, 1000);
+					});
+					$("#four_flash .but_left img").click(function() {
+						if (_index5 == 0) {
+							$("ul.mobile").prepend($("ul.mobile").html());
+							$("ul.mobile").css("left", "-1380px");
+							_index5 = 6
+						}
+						_index5--;
+						$("#four_flash .flashBg ul.mobile").stop().animate({
+							left: -_index5 * 282
+						}, 1000);
+					});
+				</script>
+
+				<script>
+					//主题公园tab更换按钮
+					$(".parktab ul li").click(function() {
+							$(".parktab ul li").removeClass("parkactive")
+							$(this).addClass("parkactive")
+						})
+						//主题公园点击tab按钮更换下面内容
+					$(".parksshow").hide()
+					$(".parksshow").eq(0).show();
+					$(".parktab ul li").click(function() {
+						n = $(".parktab ul li").index(this);
+						$(".parksshow").hide();
+						$(".parksshow").eq(n).show()
+					})
+				</script>
+
+				<script>
+					//人物介绍tab更换按钮
+					$(".elprofile .filetab a").hover(function() {
+							$(".elprofile .filetab a").removeClass("fiact")
+							$(this).addClass("fiact")
+						})
+						//人物介绍点击tab按钮更换下面内容
+					$(".elprofile .fileshows").hide()
+					$(".elprofile .fileshows").eq(0).show();
+					$(".elprofile .filetab a").hover(function() {
+						n = $(".elprofile .filetab a").index(this);
+						$(".elprofile .fileshows").hide();
+						$(".elprofile .fileshows").eq(n).show()
+					})
+				</script>
+				<!--页脚-->
+				<!-- #BeginLibraryItem "/lib/foot.lbi" -->
+				<!-- #EndLibraryItem -->

@@ -1,0 +1,66 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--导航-->
+<header>
+    <!--{if $navigator_list.top}-->
+    <div class="topnav">
+        <ul>
+        <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav key=k} -->
+            <li>
+                {if $smarty.session.user_id}
+                {if $k>1}
+                <?php //var_dump($_SESSION)?>
+                <a href="{$nav.url}"  <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+                {elseif $smarty.session.user_id &&  $k==1}
+                <div class="has_lohhed" style="float:center;margin-top: 5px;">
+                    <div class="names" style="font-size:12px;color:#480902;float:left;text-shadow:2px 2px 4px #583106;">{$smarty.session.user_name}</div>
+                    <a href="/user.php?act=logout" class="dels" style="background:none;float:left;font-size:12px;color:#480902;margin-left:8px;text-shadow:2px 2px 4px #583106;">退出</a>
+                </div>
+                {/if}
+                {else}
+                <a href="{$nav.url}"  <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+                {/if}
+				<!--{if $k eq 2} -->
+            <ul class="topsub">
+                    <li><a href="/user.php">账号管理</a></li>
+                    <li><a href="">我的订单</a></li>
+                </ul>
+				<!-- {/if}	-->
+            </li>
+        <!-- {/foreach} -->
+        </ul>
+    </div>
+    <!-- {/if} -->
+    <nav>
+        <ul>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav key=k} -->
+            <li {if $k eq 2} class="navrights"{/if}><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a></li>
+        <!-- {/foreach} -->
+        </ul>
+    </nav>
+    <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+    <!-- {if $navigator_list.bottom} -->
+    <div class="smallbac">
+        <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <!-- {foreach name=nav_bottom_list from=$navigator_list.bottom item=nav key=k} -->
+            <!-- {if $nav.name eq "魔幻影音"}<li class="navrights"><a href="{$nav.url}">魔幻影音</a>{/if} -->
+            <!-- {if $nav.name eq "魔幻游戏"}<a href="{$nav.url}">魔幻游戏</a> </li>{/if} -->
+
+            <!-- {if $nav.name eq "文化产品"}<li><a href="{$nav.url}">文化产品</a> {/if} -->
+            <!-- {if $nav.name eq "主题公园"}<a href="{$nav.url}">主题公园</a> </li>{/if} -->
+
+            <!-- {if $nav.name eq "魔咪商城"}<li><a href="{$nav.url}">魔咪商城</a>{/if} -->
+            <!-- {if $nav.name eq "在线订票"}<a href="{$nav.url}">在线订票</a> </li>{/if} -->
+
+            <!-- {if $nav.name eq "集团简介"}<li> {/if} -->
+            <!-- {if $nav.name eq "品牌文化"} <a href="{$nav.url}">品牌文化</a>{/if} -->
+            <!-- {if $nav.name eq "联系我们"} <a href="{$nav.url}">联系我们</a></li>{/if} -->
+             <!-- {/foreach} -->
+        </ul>
+    </div>
+    <!-- {/if} -->
+</header>
+
+<!--导航下logo-->
+<section id="topimgs"><img src="images/logotext.png"></section>

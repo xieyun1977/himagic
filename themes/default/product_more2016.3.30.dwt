@@ -1,0 +1,38 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+<script src="js/jscarousel.js" type="text/javascript"></script>
+
+<!--内页正文-->
+<div id="bosess">
+<section id="inside-pages">
+    <div class="pages-title"><img src="images/titles/imgwhcp.png" alt="" /><img src="images/titles/whcp.png" alt="" /></div>
+    <div class="pages-boxs">
+        <div class="products">
+            <div class="tabs">
+                <ul>
+                    <!--menu-->
+                    {include file='product_menu.dwt'}
+                </ul>
+            </div>
+    {$article.content}
+
+
+            <script>
+                //下载更换按钮
+                $(".dotitle a").click(function(){
+                    $(".dotitle a").removeClass("doact")
+                    $(this).addClass("doact")
+                })
+                //下载点击按钮更换下面内容
+                $(".dilists").hide()
+                $(".dilists").eq(0).show();
+                $(".dotitle a").click(function(){
+                    n=$(".dotitle a").index(this);
+                    $(".dilists").hide();
+                    $(".dilists").eq(n).show()
+                })
+
+            </script>
+
+            <!--页脚-->
+    <!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

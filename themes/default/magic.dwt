@@ -1,0 +1,293 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+<script src="js/jscarousel.js" type="text/javascript"></script>
+<script src="js/Tony_Tab2.js" type="text/javascript" ></script>
+<style>
+    .bt{
+        background-repeat: no-repeat;
+        height: 56px;
+        position: absolute;
+        bottom: -20px;
+        left: 300;
+        z-index: 999;
+        width: 100%;
+        overflow: hidden;
+    }
+    .bt a {
+        display: block;
+        background-image: url(../images/refer/btn.png);
+        background-repeat: no-repeat;
+        float: left;
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+        color: #543319;
+        font-family: "Arial";
+        text-align: center;
+        line-height: 30px;
+        margin-left: 7px;
+    }
+</style>
+<script>
+    var listcode='<div class="icwas"><img src="@" alt="" /></div>';
+    <!--{if $title eq '魔术世界'} -->
+    listcode='<div class="icwas"><span class="icboders"><img src="/images/magic/wordbo.png" alt="" /></span> <span class="icimgs"><img src="@" alt="" /></span></div>';
+    <!-- {/if} -->
+</script>
+<!--内页正文-->
+<div id="bosess">
+<section id="inside-pages">
+    <div class="pages-title">
+        <!--{if $title eq '魔术世界'} -->
+        <img src="/images/titles/imgmssj.png"><img src="/images/titles/mssj.png"><a href="/article_cat.php?id=23">Read More+</a>
+       <!-- {/if} -->
+        <!--{if $title eq '魔幻影音'}-->
+        <img src="/images/titles/imgmhyx.png"><img src="/images/titles/mhyy.png"><a href="/article_cat.php?id=29">Read More+</a>
+        <!--   {/if} -->
+        <!--{if $title eq '魔幻游戏'}-->
+        <img src="/images/titles/imgmhyy.png"><img src="/images/titles/mhyx.png"><a href="/article_cat.php?id=35">Read More+</a>
+        <!--   {/if} -->
+    </div>
+    <div class="pages-boxs">
+        <div class="magic-news">
+            <div class="nesbx">
+                <div class="neswle">
+                    <div id="zdtp3">
+                        <ul>
+                            <!-- {foreach from=$ads item=ad}-->
+                            <li><a href="JavaScript:;"><img src="{$ad.src}"></a></li>
+                            <!--{/foreach}-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="newsrig">
+                <ul>
+                    <!-- {foreach from=$artciles_list item=article} -->
+                    <li>
+                        <a href="article.php?id={$article.id}">
+                            <div class="newleft">
+                                <script>
+                                    pdate='{$article.add_time}'.split('-')
+                                    day=pdate[2]
+                                    ym=pdate[0]+"."+pdate[1]
+                                    document.write('<h1>'+day+'</h1>');
+                                    document.write('<span>'+ym+'</span>');
+                                </script>
+                            </div>
+                            <div class="newtext">
+                                <h5>{$article.title|escape:html}</h5>
+                                <p>{$article.description}</p>
+                            </div>
+                        </a>
+                    </li>
+                    <!-- {/foreach} -->
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            var size=999; //每页显示数量
+            <?php
+               $size=999;
+            $GLOBALS['smarty']->assign('size', $size);
+                    ?>
+            var mzlist=new Array();
+            var ozlist=new Array();
+            var yzlist=new Array();
+            var dyzlist=new Array();
+            var fzlist=new Array();
+
+            function showpage(div,p,obj)
+            {
+                $("#"+div).empty();
+                for (var i=(p-1)*size;i<p*size;i++)
+                {
+                    if(obj[i])
+                        $("#"+div).html($("#"+div).html()+obj[i]);
+                }
+            }
+        </script>
+
+        <div class="magic-lists">
+            <div class="ictop">
+                <a class="ivactives"><img src="images/magic/mz.png"><h3>美洲</h3></a>
+                <a><img src="images/magic/oz.png"><h3>欧洲</h3></a>
+                <a><img src="images/magic/yz.png"><h3>亚洲</h3></a>
+                <a><img src="images/magic/dyz.png"><h3>大洋洲</h3></a>
+                <a><img src="images/magic/fz.png"><h3>非洲</h3></a>
+            </div>
+            <div class="iclitext
+              <!--{if $title eq '魔术世界'} -->
+        ssiclitext2
+            <!-- {/if} -->
+             ">
+                <ul>
+
+                    <div id="mz"></div>
+                    <script>
+                    <!-- {foreach from=$mzlist item=article  name=foo} -->
+                    var desc=listcode.replace(/@/,'{$article.file_url}');
+                     mzlist[{$smarty.foreach.foo.index}]='<li><a href="magic_view.php?id={$article.id}">'+desc+'{$article.description}</a></li>';
+                        <!-- {if $smarty.foreach.foo.index<$size} -->
+                        $("#mz").html($("#mz").html()+mzlist[{$smarty.foreach.foo.index}])
+                        <!--{/if} -->
+                    <!-- {/foreach} -->
+//                    alert(mzlist[0])
+                       var count=mzlist.length;
+//                        alert(count)
+                       var pages  = (count > 0) ? Math.ceil(count /size) : 1;
+                        document.write(' <div class="bt">');
+                        if(pages>1)
+                       for (var i=1;i<=pages;i++)
+                       {
+                           document.write('<a href="#mz"  onclick=showpage("mz",'+i+',mzlist)>'+i+'</a>');
+                       }
+                        document.write('</div>');
+
+                    </script>
+                </ul>
+            </div>
+            <div class="iclitext <!--{if $title eq '魔术世界'} -->
+        ssiclitext2
+            <!-- {/if} -->
+             ">
+                <ul>
+                    <div id="oz"></div>
+                    <script>
+                        <!-- {foreach from=$ozlist item=article  name=foo} -->
+                        var desc=listcode.replace(/@/,'{$article.file_url}');
+                        ozlist[{$smarty.foreach.foo.index}]='<li><a href="magic_view.php?id={$article.id}">'+desc+'{$article.description}</a></li>';
+                        <!-- {if $smarty.foreach.foo.index<$size} -->
+                        $("#oz").html($("#oz").html()+ozlist[{$smarty.foreach.foo.index}])
+                        <!--{/if} -->
+                        <!-- {/foreach} -->
+                        var count=ozlist.length;
+                        //                        alert(count)
+                        var pages  = (count > 0) ? Math.ceil(count /size) : 1;
+                        document.write(' <div class="bt">');
+                        if(pages>1)
+                        for (var i=1;i<=pages;i++)
+                        {
+                            document.write('<a href="#oz"  onclick=showpage("oz",'+i+',ozlist)>'+i+'</a>');
+                        }
+                        document.write('</div>');
+
+                    </script>
+
+                </ul>
+            </div>
+            <div class="iclitext <!--{if $title eq '魔术世界'} -->
+        ssiclitext2
+            <!-- {/if} -->
+             ">
+                <ul>
+                    <div id="yz"></div>
+                    <script>
+                        <!-- {foreach from=$yzlist item=article  name=foo} -->
+                        var desc=listcode.replace(/@/,'{$article.file_url}');
+                        yzlist[{$smarty.foreach.foo.index}]='<li><a href="magic_view.php?id={$article.id}">'+desc+'{$article.description}</a></li>';
+                        <!-- {if $smarty.foreach.foo.index<$size} -->
+                        $("#yz").html($("#yz").html()+yzlist[{$smarty.foreach.foo.index}])
+                        <!--{/if} -->
+                        <!-- {/foreach} -->
+                        var count=yzlist.length;
+                        //                        alert(count)
+                        var pages  = (count > 0) ? Math.ceil(count /size) : 1;
+                        document.write(' <div class="bt">');
+                        if(pages>1)
+                        for (var i=1;i<=pages;i++)
+                        {
+                            document.write('<a href="#yz"  onclick=showpage("yz",'+i+',yzlist)>'+i+'</a>');
+                        }
+                        document.write('</div>');
+
+                    </script>
+
+                </ul>
+            </div>
+            <div class="iclitext <!--{if $title eq '魔术世界'} -->
+        ssiclitext2
+            <!-- {/if} -->
+             ">
+                <ul>
+                    <div id="dyz"></div>
+                    <script>
+                        <!-- {foreach from=$dyzlist item=article  name=foo} -->
+                        var desc=listcode.replace(/@/,'{$article.file_url}');
+                        dyzlist[{$smarty.foreach.foo.index}]='<li><a href="magic_view.php?id={$article.id}">'+desc+'{$article.description}</a></li>';
+                        <!-- {if $smarty.foreach.foo.index<$size} -->
+                        $("#dyz").html($("#dyz").html()+dyzlist[{$smarty.foreach.foo.index}])
+                        <!--{/if} -->
+                        <!-- {/foreach} -->
+                        var count=dyzlist.length;
+                        //                        alert(count)
+                        var pages  = (count > 0) ? Math.ceil(count /size) : 1;
+                        document.write(' <div class="bt">');
+                        if(pages>1)
+                        for (var i=1;i<=pages;i++)
+                        {
+                            document.write('<a href="#dyz"  onclick=showpage("dyz",'+i+',dyzlist)>'+i+'</a>');
+                        }
+                        document.write('</div>');
+
+                    </script>
+
+                </ul>
+            </div>
+            <div class="iclitext <!--{if $title eq '魔术世界'} -->
+        ssiclitext2
+            <!-- {/if} -->
+             ">
+                <ul>
+                    <div id="fz"></div>
+                    <script>
+                        <!-- {foreach from=$fzlist item=article  name=foo} -->
+                        var desc=listcode.replace(/@/,'{$article.file_url}');
+                        fzlist[{$smarty.foreach.foo.index}]='<li><a href="magic_view.php?id={$article.id}">'+desc+'{$article.description}</a></li>';
+                        <!-- {if $smarty.foreach.foo.index<$size} -->
+                        $("#fz").html($("#fz").html()+fzlist[{$smarty.foreach.foo.index}])
+                        <!--{/if} -->
+                        <!-- {/foreach} -->
+                        var count=fzlist.length;
+                        //                        alert(count)
+                        var pages  = (count > 0) ? Math.ceil(count /size) : 1;
+                        document.write(' <div class="bt">');
+                        if(pages>1)
+                        for (var i=1;i<=pages;i++)
+                        {
+                            document.write('<a href="#fz"  onclick=showpage("fz",'+i+',fzlist)>'+i+'</a>');
+                        }
+                        document.write('</div>');
+
+                    </script>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(function() {
+            $('#zdtp3').slideFocus();
+        });
+
+        //视频更换按钮
+        $(".magic-lists .ictop a").click(function(){
+            $(".magic-lists .ictop a").removeClass("ivactives")
+            $(this).addClass("ivactives")
+        })
+
+        //视频点击按钮更换下面内容
+        $(".iclitext").hide()
+        $(".iclitext").eq(0).show();
+        $(".magic-lists .ictop a").click(function(){
+            n=$(".magic-lists .ictop a").index(this);
+            $(".iclitext").hide();
+            $(".iclitext").eq(n).show()
+        })
+    </script>
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

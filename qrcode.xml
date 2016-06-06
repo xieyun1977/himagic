@@ -1,0 +1,4 @@
+﻿<data>
+<!--<qrcode path二维码路径-->
+	<qrcode path="qrcode.jpg"/>
+</data>

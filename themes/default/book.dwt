@@ -1,0 +1,16 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--补充在线订票-->
+<section id="online_booking"></section>
+<style>
+    #online_booking{
+        width:1000px;
+        margin:60px auto 0;
+        background:url(/images/xxdp.jpg) no-repeat center;
+        height:692px;
+    }
+</style>
+
+<!--页脚-->
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->

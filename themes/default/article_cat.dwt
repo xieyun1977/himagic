@@ -1,0 +1,106 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+
+<!--内页正文-->
+<div id="bosess">
+<section id="inside-pages">
+    <div class="pages-title">
+        <!--{if $keywords eq '魔术世界'} -->
+        <img src="/images/titles/imgmssj.png"><img src="/images/titles/mssj.png">
+        <!-- {/if} -->
+        <!--{if $keywords eq '魔幻影音'}-->
+        <img src="/images/titles/imgmhyx.png"><img src="/images/titles/mhyy.png">
+        <!--   {/if} -->
+        <!--{if $keywords eq '魔幻游戏'}-->
+        <img src="/images/titles/imgmhyy.png"><img src="/images/titles/mhyx.png">
+        <!--   {/if} -->
+        <!--{if $keywords eq '魔咪资讯'}-->
+        <img src="images/titles/imgmmzx.png"><img src="images/titles/mmzx.png">
+    <!--   {/if} -->
+    </div>
+    <div class="pages-refer">
+        <ul>
+            <!-- {foreach from=$artciles_list item=article} -->
+            <li>
+                <a href="article.php?id={$article.id}">
+                    <img src="{$article.file_url}">
+                    <div class="retext">
+                        <div class="teleft">
+                            <script>
+                                pdate='{$article.add_time}'.split('-')
+                                day=pdate[2]
+                                ym=pdate[0]+"."+pdate[1]
+                                document.write('<h1>'+day+'</h1>');
+                                document.write('<span>'+ym+'</span>');
+                            </script>
+                        </div>
+                        <div class="teright">
+                            <h3>{$article.title|escape:html}</h3>
+                            <p>{$article.description}</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+            <!-- {/foreach} -->
+
+        </ul>
+        <!--<div class="btns">-->
+            <!--<div class="btn-sz">-->
+                <!--<a href=""><</a>-->
+                <!--<a href="">1</a>-->
+                <!--<a href="">2</a>-->
+                <!--<a href="">3</a>-->
+                <!--<a href="">></a>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--页脚-->
+
+        <!--翻页 start-->
+        <form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+    <div id="pager" class="btns">
+        <div class="btn-sz">
+        <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+        <!-- {if $pager.page_prev} --><a class="prev" href="{$pager.page_prev}"><<</a><!-- {/if} -->
+
+        <!--{foreach from=$pager.page_number key=key item=item  name=foo}-->
+            <!--{if $smarty.foreach.foo.iteration  gt $pager.page-1}-->
+        <!-- {if $pager.page eq $key} -->
+        <a>{$key}</a>
+        <!-- {else} -->
+        <a href="{$item}">{$key}</a>
+        <!-- {/if} -->
+            <!--{if $pager.page neq 1 and $smarty.foreach.foo.iteration eq $pager.page+2}  -->
+            <a class="next" href="{$pager.page_next}">>></a>
+            <!-- {/if} -->
+            <!-- {/if} -->
+         <!--{/foreach}-->
+            </div>
+    </div>
+    <!--翻页 END-->
+
+    </form>
+    <script type="text/javascript" language="JavaScript">
+        <!--
+        {literal}
+        function selectPage(sel)
+        {
+            sel.form.submit();
+        }
+        {/literal}
+        //-->
+    </script>
+ </div>
+<!-- End #page-middle -->
+
+<!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+
+
+

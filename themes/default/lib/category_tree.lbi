@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="book-left shopping-left">
+  <ul>
+    <!--{foreach from=$categories item=cat}-->
+    <li><a href="{$cat.url}" <!--{if $category eq $cat.id} -->class="bk-active" <!--{/if}-->>
+      <h3>{$cat.name|escape:html}</h3><small>{$cat.desc|escape:html}</small></a></li>
+
+    <!--{foreach from=$cat['cat_id'] item=child}-->
+    <li><a href="{$child.url}" <!--{if $category eq $child.id} -->class="bk-active" <!--{/if}-->>
+      <h3>{$child.name|escape:html}</h3><small>{$child.desc|escape:html}</small></a>
+      <!--{/foreach}-->
+    </li>
+    <!--{/foreach}-->
+  </ul>
+</div>

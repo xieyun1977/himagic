@@ -1,0 +1,63 @@
+<!--导航-->
+<!-- #BeginLibraryItem "/lib/header.lbi" --><!-- #EndLibraryItem -->
+<script src="js/jscarousel.js" type="text/javascript"></script>
+
+<!--内页正文-->
+<div id="bosess">
+<section id="inside-pages">
+    <div class="pages-title"><img src="images/titles/imgwhcp.png" alt="" /><img src="images/titles/whcp.png" alt="" /></div>
+    <div class="pages-boxs">
+        <div class="products">
+            <div class="tabs">
+                <ul>
+                    <!--menu-->
+                    {include file='product_menu.dwt'}
+                </ul>
+            </div>
+            <div class="more-download">
+                <div class="down-texts">
+                    <div class="dotitle"><a class="doact">搜狗皮肤下载</a>                         <a>魔法城表情下载</a>                         <a>原画下载</a>                         <a>音频下载</a></div>
+
+    {$article}
+
+
+                    </div>
+
+                    <div class="dpho"><a href="#"  onclick="downfile();" target="ifrm">
+                     <img src="images/product/djdown.png" alt="" />
+            </a>
+            </div>
+        </div>
+            <script>
+                function downfile()
+                {
+//                    window.location.href=$('.showsew').attr('name');
+                    window.location.href='/down.php?act='+$('.showsew').attr('name');
+                }
+
+                //下载更换按钮
+                $(".dotitle a").click(function(){
+                    $(".dotitle a").removeClass("doact")
+                    $(this).addClass("doact")
+                })
+                //下载点击按钮更换下面内容
+                $(".dilists").hide()
+                $(".dilists").eq(0).show();
+                $(".dotitle a").click(function(){
+                    n=$(".dotitle a").index(this);
+                    $(".dilists").hide();
+                    $(".dilists").eq(n).show()
+                })
+                
+                $(function(){ 
+                    $(".more-download .down-texts .dilists a").click(function(){
+                    $(".more-download .down-texts .dilists a").removeClass("showsew")
+                    $(this).addClass("showsew")	
+                })
+   })
+
+            </script>
+
+            <!--页脚-->
+    <!-- #BeginLibraryItem "/lib/foot.lbi" --><!-- #EndLibraryItem -->
+        <iframe name="ifrm" width="0" height="0"></iframe>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/dl-zc.css" type="text/css" rel="stylesheet">
+    <title>魔法城</title>
+</head>
+
+<body>
+<div id="big-back">
+    <div id="big-back">
+        <!--找回密码4找回密码成功-->
+        <div id="dl-zc">
+            <form class="from-alls">
+                <h1>欢迎注册</h1>
+                <div class="sub-btn sub-btn2">
+                    <img src="/images/dl-zc/bf.png">
+                    <div class="gx-mm">
+                        <p>恭喜你注册成功</p>
+                        <a href="user.php?act=login" id="small-backs">去登陆</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

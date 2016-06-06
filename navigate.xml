@@ -1,0 +1,13 @@
+﻿<data>
+<!--url链接地址 win打开窗口方式（新窗口_blank,当前窗口_self）-->
+	<!--门票信息-->
+	<item0 url="#" win=""/>
+	<!--玩转魔法城-->
+	<item1 url="article.php?id=236" win=""/>
+	<!--交通信息-->
+	<item2 url="article.php?id=gjxx" win=""/>
+	<!--运营时间-->
+	<item3 url="article.php?id=235" win="_self"/>
+	<!--返回顶部-->
+	<item4 url="#" win=""/>
+</data>
